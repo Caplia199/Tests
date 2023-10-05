@@ -1,0 +1,11 @@
+node_modules/
+playwright-report/
+test-results/
+package-lock.json/
+package.json/
+playwright.config.js/
+test_superkassa_net.config.js/
+allure-report/
+allure-results/
+screenshot/
+playwright.local.config.js

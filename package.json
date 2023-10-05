@@ -1,0 +1,27 @@
+{
+  "name": "vb",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "regress": "playwright test login.spec.js",
+    "allure:copy": "cp ./allure-report/history/* ./allure-results/history",
+    "allure:generate": "npx allure generate ./allure-results --clean --history",
+    "allure:open": "npx allure open ./allure-report",
+    "allure:serve": "npx allure serve",
+    "allure-report": "npm run allure:copy && npm run allure:generate && npm run allure:open"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "allure-commandline": "^2.23.1",
+    "allure-playwright": "^2.5.0",
+    "deepmerge": "^4.3.1",
+    "knex": "^2.5.1",
+    "pg": "^8.11.2"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.37.1"
+  }
+}
