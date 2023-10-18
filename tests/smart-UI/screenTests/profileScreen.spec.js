@@ -1,7 +1,7 @@
 const { test } = require('@playwright/test');
 const config = require('../config');
 const lambda = require('../lib/lambda-func');
-const { paintElement } = require('../lib/deleteElement')
+const { paintElement } = require('../../lib/deleteElement')
 const { main, profile } = require('../locators/paintElement')
 
 test('Profile in personal account', async () => {

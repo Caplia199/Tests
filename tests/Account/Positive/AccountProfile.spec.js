@@ -1,5 +1,5 @@
 const { expect } = require('@playwright/test');
-const { test } = require('../../../fixture/accountProfile');
+const { test } = require('../../../utils/fixture/accountProfile');
 const config = require('../../../playwright.config.js')
 const {logConsoleMessages} = require('../../lib/logs.js')
 const { profileBefore, profileAfter } = require('../lib/funcPassengers.js');
