@@ -20,6 +20,8 @@ jobs:
 
     - name: Install dependencies
       run: npm install
+
+    - name: Install browsers
       run: npx playwright install
 
     - name: Run Playwright tests
