@@ -67,19 +67,19 @@ const config = {
         },
       },
 
-      {
-        name: 'webkit',
-        use: {
-          ...devices['Desktop Safari'],
-        },
-      },
+      // {
+      //   name: 'webkit',
+      //   use: {
+      //     ...devices['Desktop Safari'],
+      //   },
+      // },
 
-      {
-        name: 'Mobile Safari',
-        use: {
-          ...devices['iPhone 12'],
-        },
-      },
+      // {
+      //   name: 'Mobile Safari',
+      //   use: {
+      //     ...devices['iPhone 12'],
+      //   },
+      // },
 
       {
         name: 'Mobile Chrome',
