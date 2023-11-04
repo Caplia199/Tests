@@ -30,7 +30,8 @@ const config = {
     viewport: { width: 1280, height: 720 },
 
     // Base URL to use in actions like `await page.goto('/')`.
-    baseURL: 'http://localhost:8080/',
+    baseURL: 'https://www.saucedemo.com/',
+    baseURLapi: 'https://petstore.swagger.io/v2/',
 
     // Collect trace when retrying the failed test.
     trace: 'on-first-retry',

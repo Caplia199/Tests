@@ -7,8 +7,8 @@ const uniqueErrorMessages = new Set();
 const uniqueWarningMessages = new Set();
 
 function logConsoleMessages(page) {
-  const errorLogFile = fs.createWriteStream('tests/logs/error.log', { flags: 'a' });
-  const warningLogFile = fs.createWriteStream('tests/logs/warning.log', { flags: 'a' });
+  const errorLogFile = fs.createWriteStream('tests/consoleErrors/error.log', { flags: 'a' });
+  const warningLogFile = fs.createWriteStream('tests/consoleErrors/warning.log', { flags: 'a' });
 
   page.on('console', async (msg) => {
     if (msg.type() === 'error') {
