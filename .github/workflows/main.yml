@@ -6,12 +6,27 @@ on:
       - main
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
 
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
+
+    - name: Cache Node modules
+      uses: actions/cache@v2
+      with:
+        path: ~/.npm
+        key: ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json') }}
+      restore-keys: |
+        ${{ runner.os }}-npm-
+
+    - name: Cache Playwright browsers
+      uses: actions/cache@v2
+      with:
+        path: ~/.local/share/ms-playwright
+        key: playwright-browsers-${{ runner.os }}-${{ hashFiles('**/playwright.config.js') }}
+      restore-keys: playwright-browsers-${{ runner.os }}-
 
     - name: Set up Node.js
       uses: actions/setup-node@v2
@@ -21,13 +36,8 @@ jobs:
     - name: Install dependencies
       run: npm install
 
-  test:
-    runs-on: ubuntu-latest
-    needs: build 
-
-    steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
+    - name: Install browsers
+      run: npx playwright install
 
     - name: Run Playwright tests
       run: npx playwright test
