@@ -28,7 +28,7 @@ jobs:
           &&
           curl -L 
           -H "Accept: application/vnd.github+json" 
-          -H "Authorization: Bearer ${{ secrets.TOKEN }}" 
+          -H "Authorization: Bearer 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" 
           -H "X-GitHub-Api-Version: 2022-11-28" 
           https://api.github.com/repos/Caplia199/Test/actions/artifacts/$ARTIFACT_ID/zip 
           -o artifacts.zip &&
@@ -40,7 +40,7 @@ jobs:
           &&
           curl -L 
           -H "Accept: application/vnd.github+json" 
-          -H "Authorization: Bearer ${{ secrets.TOKEN }}" 
+          -H "Authorization: Bearer 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" 
           -H "X-GitHub-Api-Version: 2022-11-28" 
           https://api.github.com/repos/Caplia199/Test/actions/artifacts/$REPORT_ID/zip 
           -o pages.zip
