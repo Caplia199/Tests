@@ -30,4 +30,4 @@ jobs:
       uses: actions/checkout@v2
 
     - name: Run Playwright tests
-      run: npm test
+      run: npx playwright test
