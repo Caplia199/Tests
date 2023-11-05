@@ -33,7 +33,7 @@ jobs:
     - name: Run Playwright tests
       run: |
         npx playwright test
-        npx allure generate allure-results --clean -o allure-results
+        npx allure generate allure-results --clean -o _site
 
     - name: Setup Pages
       uses: actions/configure-pages@v1
@@ -41,8 +41,8 @@ jobs:
     - name: Upload Allure report
       uses: actions/upload-artifact@v2
       with:
-        name: allure-results
-        path: allure-results
+        name: _site
+        path: _site
         
   publish-report:
     runs-on: ubuntu-latest
@@ -51,8 +51,6 @@ jobs:
     steps:
       - name: Download all workflow run artifacts
         uses: actions/download-artifact@v2
-      - name: Make _site
-        run: mv allure-results _site
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v2
       - name: Deploy to GitHub Pages
