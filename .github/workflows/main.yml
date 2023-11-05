@@ -1,9 +1,15 @@
 name: CI with Playwright
 
 on:
-  push:
-    branches:
-      - main
+  workflow_dispatch:
+    inputs:
+      deployment_target:
+        description: Choose target
+        required: true
+        default: second_test
+        type: choice
+        options:
+          - UI-tests
 
 permissions:
   contents: read
@@ -30,7 +36,7 @@ jobs:
     - name: Install browsers
       run: npx playwright install
 
-    - name: Run Playwright tests
+    - name: UI-tests
       run: |
         npx playwright test
         npx allure generate allure-results --clean -o _site
@@ -57,19 +63,3 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v1.2.9
 
-
-    # - name: Deploy to GitHub Pages
-    #   id: deployment
-    #   uses: actions/deploy-pages@v1
-
-    # - name: Deploy to GitHub Pages
-    #   id: deployment
-    #   uses: actions/deploy-pages@v1
-    #   with:
-    #     emit_telemetry: false
-    #     token: ${{ secrets.GITHUB_TOKEN }}
-    #     timeout: 600000
-    #     error_count: 10
-    #     reporting_interval: 5000
-    #     artifact_name: github-pages
-    #     preview: false
