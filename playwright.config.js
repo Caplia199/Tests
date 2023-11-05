@@ -53,12 +53,12 @@ const config = {
         },
       },
 
-      {
-        name: 'chromium',
-        use: {
-          ...devices['Desktop Edge'],
-        },
-      },
+      // {
+      //   name: 'chromium',
+      //   use: {
+      //     ...devices['Desktop Edge'],
+      //   },
+      // },
 
       {
         name: 'firefox',

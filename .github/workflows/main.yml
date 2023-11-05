@@ -10,6 +10,7 @@ on:
         type: choice
         options:
           - UI-tests
+          - API-tests
 
 permissions:
   contents: read
@@ -35,6 +36,12 @@ jobs:
 
     - name: Install browsers
       run: npx playwright install
+
+    - name: API-tests
+      run: |
+        npx playwright test /tests/APItests --project=chromium
+        npx allure generate allure-results --clean -o _site
+      continue-on-error: true
 
     - name: UI-tests
       run: |
