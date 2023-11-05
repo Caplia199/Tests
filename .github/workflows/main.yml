@@ -1,4 +1,4 @@
-name: ${{ github.event.inputs.deployment_target }}
+name: CI with Playwright
 
 on:
   workflow_dispatch:
