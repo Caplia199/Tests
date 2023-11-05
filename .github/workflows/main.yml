@@ -24,5 +24,11 @@ jobs:
     - name: Install browsers
       run: npx playwright install
 
+    - name: Install Java for Allure
+      run: apt-get update && apt-get install -y openjdk-11-jre-headless
+
     - name: Run Playwright tests
-      run: npx playwright test
+      run: |
+        npx playwright test
+        npx allure generate allure-results --clean -o allure-report
+        npx allure open allure-report
