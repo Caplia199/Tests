@@ -24,30 +24,5 @@ jobs:
     - name: Install browsers
       run: npx playwright install
 
-    - name: Archive browsers
-      run: |
-        tar -czvf playwright-browsers.tar.gz -C ~/.local/share/ms-playwright .
-      working-directory: ${{ github.workspace }}
-
-    - name: Upload browsers
-      uses: actions/upload-artifact@v2
-      with:
-        name: playwright-browsers
-        path: playwright-browsers.tar.gz
-
     - name: Run Playwright tests
       run: npx playwright test
-
-  post-test:
-    runs-on: ubuntu-latest
-    needs: test
-
-    steps:
-    - name: Restore and extract browsers
-      run: |
-        mkdir -p ~/.local/share/ms-playwright
-        tar -xzvf playwright-browsers.tar.gz -C ~/.local/share/ms-playwright
-      working-directory: ${{ github.workspace }}
-
-    - name: Install browsers
-      run: npx playwright install
