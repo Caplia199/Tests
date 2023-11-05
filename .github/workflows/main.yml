@@ -23,14 +23,21 @@ jobs:
 
     - name: Install browsers
       run: npx playwright install
-      
+
     - name: Run Playwright tests
       run: |
         npx playwright test
         npx allure generate allure-results --clean -o allure-report
+
+    - name: Setup Pages
+      uses: actions/configure-pages@v1
 
     - name: Upload Allure report
       uses: actions/upload-artifact@v2
       with:
         name: allure-report
         path: allure-report
+
+    - name: Deploy to GitHub Pages
+      id: deployment
+      uses: actions/deploy-pages@v1
