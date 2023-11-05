@@ -13,25 +13,16 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
 
-    - name: Cache Node modules
-      uses: actions/cache@v2
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
       with:
-        path: ~/.npm
-        key: ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json') }}
-      restore-keys: |
-        ${{ runner.os }}-npm-
+        node-version: 14
 
     - name: Cache Playwright browsers
       uses: actions/cache@v2
       with:
         path: ~/.local/share/ms-playwright
         key: playwright-browsers-${{ runner.os }}-${{ hashFiles('**/playwright.config.js') }}
-      restore-keys: playwright-browsers-${{ runner.os }}-
-
-    - name: Set up Node.js
-      uses: actions/setup-node@v2
-      with:
-        node-version: 14
 
     - name: Install dependencies
       run: npm install
