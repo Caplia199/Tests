@@ -38,18 +38,26 @@ jobs:
         name: allure-report
         path: allure-report
 
+    - name: Deploy report to Github Pages
+        if: always()
+        uses: peaceiris/actions-gh-pages@v2
+        env:
+          PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PUBLISH_BRANCH: gh-pages
+          PUBLISH_DIR: allure-report
+
     # - name: Deploy to GitHub Pages
     #   id: deployment
     #   uses: actions/deploy-pages@v1
 
-    - name: Deploy to GitHub Pages
-      id: deployment
-      uses: actions/deploy-pages@v1
-      with:
-        emit_telemetry: false
-        token: ${{ secrets.GITHUB_TOKEN }}
-        timeout: 600000
-        error_count: 10
-        reporting_interval: 5000
-        artifact_name: github-pages
-        preview: false
+    # - name: Deploy to GitHub Pages
+    #   id: deployment
+    #   uses: actions/deploy-pages@v1
+    #   with:
+    #     emit_telemetry: false
+    #     token: ${{ secrets.GITHUB_TOKEN }}
+    #     timeout: 600000
+    #     error_count: 10
+    #     reporting_interval: 5000
+    #     artifact_name: github-pages
+    #     preview: false
