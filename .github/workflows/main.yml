@@ -18,15 +18,26 @@ jobs:
       with:
         node-version: 14
 
-    - name: Cache Playwright browsers
-      uses: actions/cache@v2
+    - name: Archive browsers
+      run: |
+        tar -czvf playwright-browsers.tar.gz -C ~/.local/share/ms-playwright .
+      working-directory: ${{ github.workspace }}
+
+    - name: Upload browsers
+      uses: actions/upload-artifact@v2
       with:
-        path: ~/.local/share/ms-playwright
-        key: playwright-browsers-${{ runner.os }}-${{ hashFiles('**/playwright.config.js') }}
+        name: playwright-browsers
+        path: playwright-browsers.tar.gz
 
     - name: Install dependencies
       run: npm install
 
+    - name: Restore and extract browsers
+      run: |
+        mkdir -p ~/.local/share/ms-playwright
+        tar -xzvf playwright-browsers.tar.gz -C ~/.local/share/ms-playwright
+      working-directory: ${{ github.workspace }}
+    
     - name: Install browsers
       run: npx playwright install
 
