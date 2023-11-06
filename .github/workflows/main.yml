@@ -47,7 +47,7 @@ jobs:
 
     - name: UI-tests
       run: |
-        npx playwright test
+        npx playwright test /tests/UItests
         npx allure generate allure-results --clean -o _site
       continue-on-error: true
 
