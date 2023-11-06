@@ -1,20 +1,19 @@
 name: CI with Playwright
 
 on:
-  workflow_dispatch:
-    inputs:
-      deployment_target:
-        description: Choose target
-        required: true
-        default: second_test
-        type: choice
-        options:
-          - UI-tests
-          - API-tests
+  # workflow_dispatch:
+  #   inputs:
+  #     deployment_target:
+  #       description: Choose target
+  #       required: true
+  #       default: second_test
+  #       type: choice
+  #       options:
+  #         - UI-tests
+  #         - API-tests
   watch:
     types: [started]
-  check_run:
-    types: [rerequested, completed]
+
     
 permissions:
   contents: read
@@ -49,7 +48,7 @@ jobs:
 
     - name: UI-tests
       run: |
-        npx playwright test
+        npx playwright test /tests/UItests
         npx allure generate allure-results --clean -o _site
       continue-on-error: true
 
