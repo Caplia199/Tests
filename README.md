@@ -7,7 +7,7 @@ Tests from this project can be run using [Docker](#docker).
 
 ## ⚡️ Running the Tests with GitHub CI
 
-In this repository, a GitHub workflow is set up. To run tests without cloning them to your local machine, simply star the repository, and the workflow will start automatically. You can find the test results, logs, and Allure report in the "Actions" tab. For more details on cloning the repository, working with Docker, and running tests, you can refer to this ## ⚙️ Installation.
+In this repository, a GitHub workflow is set up. To run tests without cloning them to your local machine, simply star the repository, and the workflow will start automatically. You can find the test results, logs, and Allure report in the "Actions" tab. For more details on cloning the repository, working with Docker, and running tests, you can refer to this [Installation](#installation).
 
 ## Test cases list
 <details>
@@ -103,7 +103,7 @@ tests
 ```
 </details>
 
-
+<a id="installation"></a>
 ## ⚙️ Installation
 
 1. Clone this repository to your local machine.
