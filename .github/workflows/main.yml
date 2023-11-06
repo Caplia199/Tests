@@ -40,9 +40,9 @@ jobs:
       run: npx playwright install
 
     - name: Choose deployment target
-        id: choose-deployment
-        run: echo "::set-output name=deployment_target::${{ github.event.inputs.deployment_target }}"
-        shell: bash
+      id: choose-deployment
+      run: echo "::set-output name=deployment_target::${{ github.event.inputs.deployment_target }}"
+      shell: bash
 
     - name: API-tests
       if: steps.choose-deployment.outputs.deployment_target == 'API-tests'
