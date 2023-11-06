@@ -1,20 +1,17 @@
 name: CI with Playwright
 
 on:
-  # workflow_dispatch:
-  #   inputs:
-  #     deployment_target:
-  #       description: Choose target
-  #       required: true
-  #       default: second_test
-  #       type: choice
-  #       options:
-  #         - UI-tests
-  #         - API-tests
-  watch:
-    types: [started]
+  workflow_dispatch:
+    inputs:
+      deployment_target:
+        description: Choose target
+        required: true
+        default: second_test
+        type: choice
+        options:
+          - UI-tests
+          - API-tests
 
-    
 permissions:
   contents: read
   pages: write
@@ -40,11 +37,11 @@ jobs:
     - name: Install browsers
       run: npx playwright install
 
-    # - name: API-tests
-    #   run: |
-    #     npx playwright test /tests/APItests --project=chromium
-    #     npx allure generate allure-results --clean -o _site
-    #   continue-on-error: true
+    - name: API-tests
+      run: |
+        npx playwright test /tests/APItests --project=chromium
+        npx allure generate allure-results --clean -o _site
+      continue-on-error: true
 
     - name: UI-tests
       run: |
