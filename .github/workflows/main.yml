@@ -27,8 +27,6 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
-      with:
-        node-version: 16
 
     - name: Set up Node.js
       uses: actions/setup-node@v2
@@ -42,9 +40,9 @@ jobs:
       run: npx playwright install
 
     - name: Choose deployment target
-      id: choose-deployment
-      run: echo "::set-output name=deployment_target::${{ github.event.inputs.deployment_target }}"
-      shell: bash
+        id: choose-deployment
+        run: echo "::set-output name=deployment_target::${{ github.event.inputs.deployment_target }}"
+        shell: bash
 
     - name: API-tests
       if: steps.choose-deployment.outputs.deployment_target == 'API-tests'
@@ -68,7 +66,6 @@ jobs:
       with:
         name: _site
         path: _site
-        node-version: 16
         
   publish-report:
     runs-on: ubuntu-latest
