@@ -6,7 +6,11 @@ export class Button {
     }
 
     async loginButtonClick(){
-        await this.page.click(loginPageLocators.loginButton);
+        await this.buttonClick(loginPageLocators.loginButton);
+    };
+
+    async buttonClick(locator){
+        await this.page.click(locator);
     };
 
 };
