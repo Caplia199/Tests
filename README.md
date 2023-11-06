@@ -5,6 +5,10 @@
 This repository contains an automated test portfolio using Playwright, written in JavaScript, to test the Sauce Labs website using the Page Object Model (POM) design pattern. The tests aim to ensure the functionality and user experience of the Sauce Labs website are consistent and robust. 
 Tests from this project can be run using [Docker](#docker).
 
+## ⚡️ Running the Tests with GitHub CI
+
+In this repository, a GitHub workflow is set up. To run tests without cloning them to your local machine, simply star the repository, and the workflow will start automatically. You can find the test results, logs, and Allure report in the "Actions" tab. For more details on cloning the repository, working with Docker, and running tests, you can refer to this ## ⚙️ Installation.
+
 ## Test cases list
 <details>
 <summary>Show List</summary>
@@ -104,7 +108,7 @@ tests
 
 1. Clone this repository to your local machine.
 ```bash
-git clone git@github.com:egorsoroka8/saucelabs.git
+git clone git@github.com:Caplia199/Tests.git
 ```
 2. Navigate to the project's root directory using the terminal or command prompt.
 3. Install the project dependencies by running the following command:
@@ -121,14 +125,14 @@ npx playwright install
 
 To execute the test cases against the Sauce Labs website, simply run the following command:
 
-check tests on correct web-site :
+Run tests :
 ```bash
-npm run test:success
+npx playwright test
 ```
 
-check tests on broken web-site :
+if you want to run tests on a specific browser, add the following command to the previous one: :
 ```bash
-npm run test:fail
+npx playwright test --project=chromium
 ```
 
 ## 📊 Generate Report
@@ -136,21 +140,21 @@ npm run test:fail
 To generate Allure report run:
 
 ```bash
-npm run allure-report
+npx allure generate allure-results --clean -o allure-report
 ```
 
+To open Allure report run:
 
-
-<div align="center">
-  <img src="https://github.com/egorsoroka8/content/raw/main/allure.gif" alt="Your GIF" />
-</div>
+```bash
+npx allure open allure-report
+```
 
 <a id="docker"></a>
 ## 🐳 Docker  
-
+(in process)
 1. Clone this repository to your local machine.
 ```bash
-git clone git@github.com:egorsoroka8/saucelabs.git
+git clone git@github.com:Caplia199/Tests.git
 ```
 2. Create image.
 ```bash
