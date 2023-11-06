@@ -45,7 +45,7 @@ jobs:
 
     - name: UI-tests
       run: |
-        npx playwright test /tests/UItests
+        npx playwright test
         npx allure generate allure-results --clean -o _site
       continue-on-error: true
 
@@ -73,4 +73,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v1.2.9
-
