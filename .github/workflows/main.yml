@@ -52,7 +52,7 @@ jobs:
       continue-on-error: true
 
     - name: UI-tests
-      if: steps.choose-deployment.outputs.deployment_target == 'UI-tests' || github.event_name == 'watch' && contains(github.event.types, 'started')
+      if: steps.choose-deployment.outputs.deployment_target == 'UI-tests' || (github.event_name == 'watch' && github.event.action == 'started')
       run: |
         npx playwright test /tests/UItests
         npx allure generate allure-results --clean -o _site
