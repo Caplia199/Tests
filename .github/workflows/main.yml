@@ -11,7 +11,9 @@ on:
         options:
           - UI-tests
           - API-tests
-
+  watch:
+    types: [started]
+    
 permissions:
   contents: read
   pages: write
