@@ -46,17 +46,16 @@ jobs:
 
     - name: API-tests
       if: steps.choose-deployment.outputs.deployment_target == 'API-tests'
-      run: |
-        npx playwright test /tests/APItests --project=chromium
-        npx allure generate allure-results --clean -o _site
+      run: npx playwright test /tests/APItests --project=chromium
       continue-on-error: true
 
     - name: UI-tests
       if: steps.choose-deployment.outputs.deployment_target == 'UI-tests' || (github.event_name == 'watch' && github.event.action == 'started')
-      run: |
-        npx playwright test /tests/UItests
-        npx allure generate allure-results --clean -o _site
+      run: npx playwright test /tests/UItests
       continue-on-error: true
+
+    - name: Generate report
+      run: npx allure generate allure-results --clean -o _site
 
     - name: Setup Pages
       uses: actions/configure-pages@v1
