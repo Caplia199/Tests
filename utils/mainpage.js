@@ -41,6 +41,10 @@ export class MainPage extends Page {
     };
 
     async expectSort(sortOption){
+
+        // For now, I haven't found a better way to verify the correctness of sorting a list of items specifically for this case
+        // If you have any ideas regarding this, I'd be happy to discuss 😄
+
         const inventoryItems = await this.page.$$('.inventory_list .inventory_item');
 
         let isSorted = true;
@@ -103,7 +107,7 @@ export class MainPage extends Page {
                     }
                   }
                 break;
-                
+
         };
 
         await expect(isSorted).toBe(true);
