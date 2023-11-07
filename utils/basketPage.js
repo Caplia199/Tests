@@ -1,4 +1,3 @@
-const { expect } = require('@playwright/test');
 const { Page } = require('./page')
 const { checkout, checkoutOverview } = require('../statick/locators');
 

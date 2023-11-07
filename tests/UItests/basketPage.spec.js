@@ -101,12 +101,4 @@ test.describe('Main page', () => {
 
     });
 
-    test('Sort products', async ({
-        mainPage,
-    }) => {
-
-
-
-    });
-
 });
