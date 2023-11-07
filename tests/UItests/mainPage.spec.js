@@ -5,15 +5,13 @@ test.beforeEach(async ({
     page,
     username, 
     password,
-    loginPage,
-    mainPage
+    loginPage
 }) => {
 
     await page.goto('/');
     await username.inputValue('standard_user');
     await password.inputValue('secret_sauce');
     await loginPage.loginButtonClick();
-    await mainPage.elementsIsVisible();
 
 }); 
 

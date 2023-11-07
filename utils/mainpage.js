@@ -1,6 +1,6 @@
 const { expect } = require('@playwright/test');
 const { Page } = require('./page')
-const { menu, productPageLocators, mainPageLocators } = require('../statick/locators');
+const { menu, productPageLocators, mainPageLocators, removeProductLocators } = require('../statick/locators');
 
 export class MainPage extends Page {
     constructor(page, locators) {
@@ -18,6 +18,20 @@ export class MainPage extends Page {
 
     async logout(){
         await super.buttonClick(menu.logout);
+    };
+
+    async addProduct(product){
+        await super.buttonClick(mainPageLocators[product]);
+    };
+
+    async removeProduct(product){
+        await super.buttonClick(removeProductLocators[product]);
+    };
+
+    async howProductInBasket(){
+        let shoppingCartBadge = await this.page.$('.shopping_cart_badge');
+        let badgeText = await shoppingCartBadge.innerText();
+        return badgeText;
     };
 
     async openProduct(){
@@ -112,6 +126,16 @@ export class MainPage extends Page {
 
         await expect(isSorted).toBe(true);
 
+    };
+
+    async goToBusket(){
+        await super.buttonClick(mainPageLocators.shoppingCartButton);
+    };
+    
+    async whatPrice(){
+        const priceElement = await this.page.locator('//*[@id="inventory_container"]/div/div[5]/div[2]/div[2]/div').first();
+        const price = await priceElement.textContent();
+        return price;
     };
 
 };

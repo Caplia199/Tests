@@ -9,15 +9,46 @@ const loginPageLocators = {
 const errorMassage = '[data-test="error"]';
 
 const mainPageLocators = {
-    addButton: '[data-test="add-to-cart-sauce-labs-backpack"]',
+    souceLabs: '[data-test="add-to-cart-sauce-labs-onesie"]',
     header: '[id="header_container"]',
     shoppingCartButton: '[id="shopping_cart_container"]',
     sort: '[data-test="product_sort_container"]',
     menu: '[id="react-burger-menu-btn"]',
-    product: '[id="item_4_title_link"]'
+    product: '[id="item_4_title_link"]',
+    bikeLight: '[data-test="add-to-cart-sauce-labs-bike-light"]',
   };
 
-  const productPageLocators = {
+const basketPageLocators = {
+    onesie: '[id="item_2_title_link"]',
+    onesieRemove: '[data-test="remove-sauce-labs-onesie"]',
+    continueShopping: '[data-test="continue-shopping"]',
+    checkout: '[data-test="checkout"]',
+  };
+
+const checkout = {
+    firstName: '[data-test="firstName"]',
+    lastName: '[data-test="lastName"]',
+    code: '[data-test="postalCode"]',
+    continue: '[data-test="continue"]',
+  };
+
+const checkoutOverview = {
+    product: '[id="item_2_title_link"]',
+    cancel: '[data-test="cancel"]',
+    finish: '[data-test="finish"]',
+  };
+
+const checkoutComplete = {
+    complete: '[id="checkout_complete_container"]',
+    backToProducts: '[data-test="back-to-products"]',
+  };
+
+const removeProductLocators = {
+    souceLabs: '[data-test="remove-sauce-labs-onesie"]',
+    bikeLight: '[data-test="remove-sauce-labs-bike-light"]',
+  };
+
+const productPageLocators = {
     addButton: '[data-test="add-to-cart-sauce-labs-backpack"]',
     backToProducts: '[data-test="back-to-products"]',
   };
@@ -35,6 +66,11 @@ const menu = {
     mainPageLocators,
     errorMassage,
     menu,
-    productPageLocators
+    productPageLocators,
+    removeProductLocators,
+    basketPageLocators,
+    checkout,
+    checkoutOverview,
+    checkoutComplete
   };
   
